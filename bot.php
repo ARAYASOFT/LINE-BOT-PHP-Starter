@@ -17,6 +17,8 @@ var_dump(
 printf(
 	$json_str
 );
+error_log ($json_str);
+
 $call_line_api = "https://api.line.me/v2/bot/message/push";
 $response = array();
 
