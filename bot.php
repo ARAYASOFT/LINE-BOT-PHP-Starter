@@ -109,7 +109,7 @@ if ($sender_txt == "reply") {
 
 //回傳給line server
 $header[] = "Content-Type: application/json";
-$header[] = "Authorization: Bearer " + $access_token;
+$header[] = "Authorization: Bearer " . $access_token;
 $ch = curl_init($call_line_api);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));
