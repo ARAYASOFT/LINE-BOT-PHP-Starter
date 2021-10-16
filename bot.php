@@ -14,6 +14,9 @@ $sender_replyToken = $json_obj->events[0]->replyToken;
 var_dump(
 	$json_obj
 );
+printf(
+	$json_str
+);
 $call_line_api = "https://api.line.me/v2/bot/message/push";
 $response = array();
 
