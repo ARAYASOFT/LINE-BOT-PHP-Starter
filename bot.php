@@ -9,8 +9,8 @@ $sender_txt = $json_obj->events[0]->message->text;
 $sender_replyToken = $json_obj->events[0]->replyToken;
 
 $myfile = fopen("log.txt", "w+") or die("Unable to open file!"); //設定一個log.txt 用來印訊息
-fwrite($myfile, "\xEF\xBB\xBF" . $json_str); //在字串前加入\xEF\xBB\xBF轉成utf8格式
-fclose($myfile);
+// fwrite($myfile, "\xEF\xBB\xBF" . $json_str); //在字串前加入\xEF\xBB\xBF轉成utf8格式
+// fclose($myfile);
 
 $call_line_api = "https://api.line.me/v2/bot/message/push";
 $response = array();
@@ -118,5 +118,8 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 $result = curl_exec($ch);
 curl_close($ch);
 
-fwrite($myfile, $result);
-fclose($myfile);
+
+echo $result . "\r\n";
+
+// fwrite($myfile, $result);
+// fclose($myfile);
