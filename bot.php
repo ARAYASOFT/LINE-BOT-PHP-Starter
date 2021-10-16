@@ -105,6 +105,17 @@ if ($sender_txt == "reply") {
             ),
         ),
     );
+} else {
+    $call_line_api = "https://api.line.me/v2/bot/message/reply";
+    $response = array(
+        "replyToken" => $sender_replyToken,
+        "messages" => array(
+            array(
+                "type" => "text",
+                "text" => $sender_txt,
+            ),
+        ),
+    );
 }
 
 //回傳給line server
@@ -117,7 +128,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 $result = curl_exec($ch);
 curl_close($ch);
-
 
 echo $result . "\r\n";
 
